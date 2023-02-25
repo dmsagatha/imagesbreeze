@@ -7,6 +7,17 @@
 
   <div class="py-4">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+      @if (session()->has('success'))
+        <div class="bg-green-400 text-sm text-green-700 m-2 p-2">
+          {{ session('success') }}
+        </div>
+      @endif
+      @if (session()->has('danger'))
+        <div class="bg-red-400 text-sm text-red-700 m-2 p-2">
+          {{ session('danger') }}
+        </div>
+      @endif
+      
       <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
 

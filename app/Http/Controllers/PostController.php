@@ -45,14 +45,16 @@ class PostController extends Controller
       ]);
       
       // Eliminar directorio y archivo temporal
-      File::deleteDirectory(storage_path('app/public/posts/tmp/' . $request->photo));
-      // Storage::deleteDirectory('posts/tmp/' . $temporaryFile->folder);
+      // File::deleteDirectory(storage_path('app/public/posts/tmp/' . $request->photo));
+      Storage::deleteDirectory('posts/tmp/' . $temporaryFile->folder);
 
       // Eliminar el archivo temporal del modelo asociado
       $temporaryFile->delete();
 
       return to_route('posts.index')->with('success', 'Post creado');
     }
+
+    return to_route('posts.index')->with('danger', 'Por favor subir un archivo');
   }
   
   // FilePond

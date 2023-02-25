@@ -17,7 +17,7 @@
           {{ session('danger') }}
         </div>
       @endif
-      
+
       <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
 
@@ -121,6 +121,7 @@
         server: {
           // url: '/tmp_upload',
           process: '/tmp_upload',
+          revert: '/tmp_delete',
           headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
           }

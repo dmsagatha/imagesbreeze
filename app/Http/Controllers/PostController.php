@@ -41,9 +41,9 @@ class PostController extends Controller
       Storage::deleteDirectory('posts/tmp/' . $temporaryFile->folder);
       $temporaryFile->delete();
 
-      return redirect('/admin/posts')->withErrors($validator)->withInput();
+      return to_route('posts.index')->withErrors($validator)->withInput();
     } elseif ($validator->fails()) {
-      return redirect('/admin/posts')->withErrors($validator)->withInput();
+      return to_route('posts.index')->withErrors($validator)->withInput();
     }
     
     if ($temporaryFile) {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('posts', PostController::class)->only([
       'index', 'store'
     ]);
+
+    // Dropzone
+    Route::get('/dropzone', [DropzoneController::class, 'index'])->name('dropzone.index');
+    Route::post('/dropzone', [DropzoneController::class, 'store'])->name('dropzone.store');
+    Route::post('/dropzonestore',[DropzoneController::class, 'dropzonestore'])->name('dropzone.dropzonestore');
   });
   // FilePond
   Route::post('/tmp_upload', [PostController::class, 'tmpUplaod']);

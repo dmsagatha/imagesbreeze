@@ -16,7 +16,10 @@
             {{ __('Dashboard') }}
           </x-nav-link>
           <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
-            {{ __('Posts') }}
+            {{ __('Posts - Filepond') }}
+          </x-nav-link>
+          <x-nav-link :href="route('dropzone.index')" :active="request()->routeIs('dropzone.index')">
+            {{ __('Posts - Dropzone') }}
           </x-nav-link>
         </div>
       </div>
